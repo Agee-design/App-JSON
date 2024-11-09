@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css">
+    <title>Sales Report</title>
+    <link rel="stylesheet" type="text/css" href="/styles/main.css">
+</head>
+<body>
+    <h1>Clothes Winter Report</h1>
+    <h5>Date: <%= new Date().toLocaleDateString() %> </h5>
+
+    <form action="/recipe" method="POST" class="buttons">
+        <button type="submit" value="Thermal" name="choice">THER</button>
+        <button type="submit" value="Jacket" name="choice">JCK</button>
+        <button type="submit" value="Overcoat" name="choice">OVC</button>
+        <button type="submit" value="Vest" name="choice">WST</button>
+        <button type="submit" value="Cardican" name="choice">CRD</button>
+        <button type="submit" value="Pullover" name="choice">PLV</button>
+        <button type="submit" value="Blazer" name="choice">BLZ</button>
+        <button type="submit" value="SwitShirt" name="choice">SWS</button>
+    </form>
+
+    <div id="recipeContainer" class="hidden">
+        <% if(locals.recipe) { %>
+            <h2 id="recipeTitle">
+                <%= recipe.name %>  Details
+
+            </h2>
+           
+
+        <ul id="Details">
+            <li>Year :<%= recipe.Details.season1.YEAR %></li>
+            <li>WH_OnH: <%= recipe.Details.season1.WH_OnH %></li>
+            <li>STORE_OnH: <%= recipe.Details.season1.STR_OnH %></li>
+            <li>TOTAL_STOCK: <%= recipe.Details.season1.TOT_STK %></li>
+            <li>TOTAL_SALE: <%= recipe.Details.season1.TOT_SAL %></li>
+            <li>TOTAL_AMUNT: <%= recipe.Details.season1.TOT_AMUT %></li>
+            
+            <li>Year :<%= recipe.Details.season2.YEAR %></li>
+            <li>WH_OnH: <%= recipe.Details.season2.WH_OnH %></li>
+            <li>STORE_OnH: <%= recipe.Details.season2.STR_OnH %></li>
+            <li>TOTAL_STOCK: <%= recipe.Details.season2.TOT_STK %></li>
+            <li>TOTAL_SALE: <%= recipe.Details.season2.TOT_SAL %></li>
+            <li>TOTAL_AMUNT: <%= recipe.Details.season2.TOT_AMUT %></li>
+
+        </ul>
+        <%}else {%>
+        <h2>Details Display </h2>
+        <%}%>
+    </div>
+    
+</body>
+</html>
